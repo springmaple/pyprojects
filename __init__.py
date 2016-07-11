@@ -7,16 +7,16 @@ def merge_sort(m):
     left = merge_sort(m[:mhalf])
     right = merge_sort(m[mhalf:])
 
-    result = []
+    merged = []
 
     while left and right:
         if left[0] <= right[0]:
-            result.append(left.pop(0))
+            merged.append(left.pop(0))
         else:
-            result.append(right.pop(0))
+            merged.append(right.pop(0))
 
-    result += left + right
-    return result
+    merged += left + right
+    return merged
 
 
 def insertion_sort(m):
@@ -41,6 +41,7 @@ def bubble_sort(m):
                 m[j], m[k] = l, r
 
     return m
+
 
 if __name__ == '__main__':
     test = [2, 4, 5, 3, 2, 4, 5, 1, 220, 123, 12, 125, 124, 12423, 2.2, 3.4, 2]
