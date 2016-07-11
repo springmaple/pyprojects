@@ -20,11 +20,11 @@ def merge_sort(m):
 
 
 def insertion_sort(m):
-    for j, y in enumerate(m):
-        for i in reversed(range(j)):
-            x = m[i]
-            if x > y:
-                m[i + 1], m[i] = x, y
+    for i, x in enumerate(m):
+        for j in reversed(range(i)):
+            y = m[j]
+            if x < y:
+                m[j], m[j + 1] = x, y
                 continue
             break
 
