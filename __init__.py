@@ -4,11 +4,8 @@ def merge_sort(m):
         return m
 
     mhalf = mlen // 2
-    left = m[:mhalf]
-    right = m[mhalf:]
-
-    left = merge_sort(left)
-    right = merge_sort(right)
+    left = merge_sort(m[:mhalf])
+    right = merge_sort(m[mhalf:])
 
     result = []
 
@@ -18,8 +15,7 @@ def merge_sort(m):
         else:
             result.append(right.pop(0))
 
-    result += left
-    result += right
+    result += left + right
     return result
 
 
@@ -36,7 +32,7 @@ def insertion_sort(m):
 
 
 if __name__ == '__main__':
-    test = [2, 4, 5, 3, 2, 4, 5, 1, 220, 123, 12, 125, 124, 12423, 2.2, 3.4, 1123]
+    test = [2, 4, 5, 3, 2, 4, 5, 1, 220, 123, 12, 125, 124, 12423, 2.2, 3.4, 2]
     res = sorted(test)
     assert merge_sort(test) == res
     assert insertion_sort(test) == res
