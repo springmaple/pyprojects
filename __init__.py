@@ -1,21 +1,15 @@
 def merge_sort(m):
     mlen = len(m)
-    # Base case. A list of zero or one elements is sorted, by definition.
     if mlen <= 1:
         return m
 
-    # Recursive case. First, divide the list into equal-sized sublists
-    # consisting of the even and odd-indexed elements.
     mhalf = mlen // 2
     left = m[:mhalf]
     right = m[mhalf:]
 
-    # Recursively sort both sublists.
     left = merge_sort(left)
     right = merge_sort(right)
 
-    # === Func: merge(left, right)
-    # Then merge the now-sorted sublists.
     result = []
 
     while left and right:
@@ -24,19 +18,17 @@ def merge_sort(m):
         else:
             result.append(right.pop(0))
 
-    # Either left or right may have elements left; consume them.
-    # (Only one of the following loops will actually be entered.)
     result += left
     result += right
     return result
 
 
 def insertion_sort(m):
-    for i, x in enumerate(m):
-        for j in reversed(range(i)):
-            y = m[j]
-            if y > x:
-                m[j], m[j + 1] = x, y
+    for j, y in enumerate(m):
+        for i in reversed(range(j)):
+            x = m[i]
+            if x > y:
+                m[i + 1], m[i] = x, y
                 continue
             break
 
