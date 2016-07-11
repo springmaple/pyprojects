@@ -32,6 +32,7 @@ def insertion_sort(m):
 
 
 def bubble_sort(m):
+    """a.k.a sinking sort"""
     for i in reversed(range(len(m))):
         for j in range(i):
             k = j + 1
