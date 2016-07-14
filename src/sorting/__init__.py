@@ -1,21 +1,23 @@
 def merge_sort(m):
     mlen = len(m)
-    if mlen <= 1:
+    if mlen <= 2:
+        try:
+            x, y = m[0], m[1]
+            if x > y:
+                m[0], m[1] = y, x
+        except IndexError:
+            pass
         return m
 
     mhalf = mlen // 2
-    left = merge_sort(m[:mhalf])
-    right = merge_sort(m[mhalf:])
+    l = merge_sort(m[:mhalf])
+    r = merge_sort(m[mhalf:])
 
     merged = []
+    while l and r:
+        merged.append(l.pop(0) if l[0] <= r[0] else r.pop(0))
 
-    while left and right:
-        if left[0] <= right[0]:
-            merged.append(left.pop(0))
-        else:
-            merged.append(right.pop(0))
-
-    merged += left + right
+    merged += l + r
     return merged
 
 
