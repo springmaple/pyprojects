@@ -12,6 +12,10 @@ class TestClass:
     def teardown_method(self, _):
         del self._ls
 
+    def test_builtin_sorted(self):
+        for ls in self._ls:
+            assert sorted(list(ls)) == sorted(ls)
+
     def test_merge_sort(self):
         for ls in self._ls:
             assert merge_sort(list(ls)) == sorted(ls)
