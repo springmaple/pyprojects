@@ -1,10 +1,8 @@
-from .sorting import merge_sort, insertion_sort, bubble_sort
+import sorting
 from random import randint
 
 
 class TestClass:
-    def __init__(self):
-        self._ls = None
 
     def setup_method(self, _):
         self._ls = []
@@ -20,12 +18,12 @@ class TestClass:
 
     def test_merge_sort(self):
         for ls in self._ls:
-            assert merge_sort(list(ls)) == sorted(ls)
+            assert sorting.merge_sort(list(ls)) == sorted(ls)
 
     def test_insertion_sort(self):
         for ls in self._ls:
-            assert insertion_sort(list(ls)) == sorted(ls)
+            assert sorting.insertion_sort(list(ls)) == sorted(ls)
 
     def test_bubble_sort(self):
         for ls in self._ls:
-            assert bubble_sort(list(ls)) == sorted(ls)
+            assert sorting.bubble_sort(list(ls)) == sorted(ls)
