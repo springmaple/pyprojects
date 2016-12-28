@@ -1,8 +1,10 @@
-from sorting import merge_sort, insertion_sort, bubble_sort
+from .sorting import merge_sort, insertion_sort, bubble_sort
 from random import randint
 
 
 class TestClass:
+    def __init__(self):
+        self._ls = None
 
     def setup_method(self, _):
         self._ls = []
