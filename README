@@ -3,4 +3,4 @@ Packages required for
 img2ascii (pillow)
 opengl (pygame, pyopengl, pyopengl-accelerate)
 sorting (-)
-dictioary (-)
+dictionary (-)
